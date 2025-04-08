@@ -1,0 +1,31 @@
+﻿@model List<BooklyProject.Entities.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2>Kategoriler</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Görsel</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    
+     @foreach (var item in Model)
+     {
+         
+         count++;
+         <tr>
+             <th> @count</th>
+             <td><img src="@item.ImageUrl" style="width:75px;height:75px;" /></td>
+             <td>@item.CategoryName</td>
+             <td><a class="btn btn-outline-danger" href="/Category/DeleteCategory/@item.CategoryId"><i class="fa fa-trash"></i>Sil</a></td>
+             <td><a class="btn btn-outline-primary" href="/Category/EditCategory/@item.CategoryId"><i  class="fa fa-pen"></i>Güncelle</a></td>
+         </tr>
+     }
+</table> 

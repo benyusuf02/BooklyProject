@@ -1,0 +1,30 @@
+﻿    @model BooklyProject.Entities.Admin
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>profil bilgileri güncelleme</h2>
+
+<form>
+    <div class="text-center">
+        <img src="@Model.ImageUrl" alt="Profil resmi" class="img-thumbnail" style="width:200px; height:200px; " />
+        <input type="file" name=" ImageFile" />
+    </div>
+    <input type="hidden" name="ImageUrl" value="@Model.ImageUrl" />
+    <label>Ad </label>
+    <input type="text" name="FirstName" value="@Model.FirstName" required />
+
+    <label>Ad </label>
+    <input type="text" name="LastName" value="@Model.LastName" required />
+
+    <label>Ad </label>
+    <input type="text" name="Username" value="@Model.UserName" required />
+    <label>bilgileri Güncellemek için Şifreinizi Girin</label>
+    <input type="password" name="Password" class="form-control" required />
+    <p style="color:red">
+        @Html.ValidationSummary()
+    </p>
+    <button class="btn btn-outline-dark">Bilgileri Güncelle</button>
+
+</form>
